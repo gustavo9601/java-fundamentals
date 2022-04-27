@@ -25,6 +25,7 @@ public class Variables {
         // hexadecimal => debe empezar 0x
         int hexadecimalNumber = 0x1f4;
 
+        int i = 5, j = 4;
 
 
         // var => el tipo de dato asignado se asginara dinamicamente en funcion del valor
