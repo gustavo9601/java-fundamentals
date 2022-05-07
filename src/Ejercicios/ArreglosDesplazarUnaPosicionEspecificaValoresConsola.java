@@ -30,6 +30,8 @@ public class ArreglosDesplazarUnaPosicionEspecificaValoresConsola {
         for (int i = posicionReemplazar; i < numeros.length; i++) {
             if (i == 0) {
                 numeroAnterior = numeros[i];
+                seAgregoElValor = true;
+                numeros[i] = valorAAgregar;
             } else {
                 numeroActual = numeros[i];
                 if (!seAgregoElValor) {
