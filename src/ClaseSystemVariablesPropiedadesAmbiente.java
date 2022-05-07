@@ -1,6 +1,6 @@
 import java.util.Properties;
 
-public class ClaseSystemPropiedadesAmbiente {
+public class ClaseSystemVariablesPropiedadesAmbiente {
     public static void main(String[] args) {
 
 

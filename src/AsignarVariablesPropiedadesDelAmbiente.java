@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class AsignarPropiedadesDelAmbiente {
+public class AsignarVariablesPropiedadesDelAmbiente {
     public static void main(String[] args) {
         try {
             FileInputStream archivoPropiedades = new FileInputStream("./src/config.properties");
