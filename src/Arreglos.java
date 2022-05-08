@@ -34,6 +34,15 @@ public class Arreglos {
         }
 
 
+        // Copia de un arreglo a otro
+        String[] nombresCortados = new String[nombres.length - 1];
+        // arrayCopy(array_oroginal, posicion_inicial_Array_original, array_a_copiar, posicion_inicial_array_a_copiar, posicion_final_array_a_copiar)
+        System.arraycopy(nombres, 0, nombresCortados, 0, nombresCortados.length);
+
+        for (int i = 0; i < nombresCortados.length; i++) {
+            System.out.println("nombresCortados[" + i + "] = " + nombresCortados[i]);
+        }
+
         // Arreglos combinados
         int[] a, b, c;
         a = new int[10];
