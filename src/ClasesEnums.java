@@ -28,6 +28,22 @@ public class ClasesEnums {
             default:
                 System.out.println("No se encontro el vehiculo");
         }
+
+        // Usando switch con jdk > 13
+        switch (tipoAutomovil) {
+            case DEPORTIVO -> System.out.println("Es un deportivo con jdk > 13");
+            case LIMOSINA -> System.out.println("Es una limosina con jdk > 13");
+            case SEDAN -> System.out.println("Fue un sedan con jdk > 13");
+            default -> System.out.println("No se encontro el vehiculo con jdk > 13");
+        }
+        
+
+        // Iterando sobre un enum
+        // Accedemos al values() para que devuelva los items como valores de un array
+        for (TipoAutomovil tipo: TipoAutomovil.values()) {
+            System.out.println("foreach tipo.tipoAutomovil: " + tipo.tipoAutomovil);
+            System.out.println("foreach tipo.puertas: " + tipo.puertas);
+        }
     }
 }
 
@@ -70,13 +86,13 @@ enum TipoAutomovil {
     LIMOSINA("Limosina", 6);
 
 
-
     public final String tipoAutomovil;
     public final int puertas;
 
     public String getTipoAutomovil() {
         return tipoAutomovil;
     }
+
     public int getPuertas() {
         return puertas;
     }
