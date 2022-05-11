@@ -27,7 +27,7 @@ public class MatricesHSillaPorConsola {
             }
         }
         imprimirMatriz(matriz, "Matriz X");
-
+        
     }
 
     public static void imprimirMatriz(int[][] matriz, String titulo) {

@@ -11,6 +11,7 @@ public class Variables {
         int age = 26;
         String name = "gustavo";
         double salary = 1000.5;
+        double porcentaje = 80.2f;
         double notacionCientifica = 98765.43e-3; // 98.76843
         boolean isActive = true;
         // Se especifica al final del numero L, para que sepa que es un literal long integer
