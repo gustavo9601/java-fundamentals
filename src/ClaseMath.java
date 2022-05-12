@@ -79,7 +79,7 @@ public class ClaseMath {
         System.out.println("randomDouble = " + randomDouble);
 
         // Aleatorios con rangos
-        // 1 a 99
+        // 1 a 9
         System.out.println("randomObj.nextInt(10) = " + randomObj.nextInt(10));
         // 1 a 99
         System.out.println("randomObj.nextInt(1,100) = " + randomObj.nextInt(1, 100));
