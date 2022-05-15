@@ -1,9 +1,6 @@
 package clase_abstracta.ejemplo.formulario;
 
-import clase_abstracta.ejemplo.elementos.ElementoForm;
-import clase_abstracta.ejemplo.elementos.InputForm;
-import clase_abstracta.ejemplo.elementos.SelectForm;
-import clase_abstracta.ejemplo.elementos.TextAreaForm;
+import clase_abstracta.ejemplo.elementos.*;
 import clase_abstracta.ejemplo.select.Opcion;
 
 import java.util.ArrayList;
