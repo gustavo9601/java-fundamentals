@@ -1,4 +1,3 @@
-import java.util.Currency;
 
 public class ClaseAbstracta {
     /*
@@ -6,6 +5,8 @@ public class ClaseAbstracta {
      * Es una clase que representa un cepcepto generico conceptual.
      * Cada hija que herede va a implementar de diferente forma
      * No se puede instanciar, solo heredar definiendo la estructura o diseño de sus hijos, forzando a usar todos sus metodos como contrato
+     *
+     * - Nota: Una clase abstracta puede extender de otra abstracata y no tiene porque implementar los metodos de su padre
      * */
 
     public static void main(String[] args) {
@@ -17,7 +18,13 @@ public class ClaseAbstracta {
     }
 }
 
-abstract class FiguraGeometrica {
+abstract class Figura {
+    protected String nombre;
+
+    abstract public String nombrePruebas();
+}
+
+abstract class FiguraGeometrica extends Figura {
     private int alto;
     private int ancho;
     private int cantidadLados;
@@ -85,6 +92,11 @@ class Cuadrado extends FiguraGeometrica {
     @Override
     public void dibujar() {
         System.out.println("Dibujando la forma " + this.getForma());
+    }
+
+    @Override
+    public String nombrePruebas() {
+        return (this.nombre != null) ? this.nombre.toUpperCase() : "Holaaaa esto es una prueba";
     }
 }
 
