@@ -2,6 +2,7 @@ package clase_abstracta.ejemplo.formulario;
 
 import clase_abstracta.ejemplo.elementos.*;
 import clase_abstracta.ejemplo.select.Opcion;
+import clase_abstracta.ejemplo.validador.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -11,9 +12,21 @@ public class EjemploForm {
     public static void main(String[] args) {
 
         InputForm inputUserName = new InputForm("username", "text");
+        inputUserName.addValidador(new RequeridoValidador());
+
         InputForm inputPassword = new InputForm("password", "password");
+        inputPassword.addValidador(new RequeridoValidador())
+                .addValidador(new LargoValidador())
+                .addValidador(new NoNuloValidador());
+
         InputForm inputEmail = new InputForm("email", "email");
+        inputEmail.addValidador(new RequeridoValidador())
+                .addValidador(new NoNuloValidador())
+                .addValidador(new EmailValidador());
+
         InputForm inputEdad = new InputForm("edad", "number");
+        inputEdad.addValidador(new RequeridoValidador())
+                .addValidador(new NumeroValidador());
 
         TextAreaForm textAreaDetalle = new TextAreaForm("detalle", 10, 50);
 
@@ -28,7 +41,7 @@ public class EjemploForm {
         // Seteando los valores
         inputUserName.setValor("Gustavo");
         inputPassword.setValor("123456");
-        inputEmail.setValor("Gustavo@gmail.com");
+        inputEmail.setValor("Gustavogmail.com");
         inputEdad.setValor("26");
         opcionJava.setSelected(true);
 
@@ -41,7 +54,7 @@ public class EjemploForm {
                 inputPassword,
                 inputEmail,
                 inputEdad
-                );
+        );
 
         /*
         Otra forma pusheando los valores con Add
@@ -63,6 +76,15 @@ public class EjemploForm {
         for (ElementoForm elementoForm : elementosForms) {
             System.out.println(elementoForm.dibujarHtml());
         }*/
+
+
+        // Recorriendo cada elemento y retornando los valores
+        System.out.println("Errores en el formulario");
+        elementosForms.forEach(elementoForm -> {
+            if (!elementoForm.esValido()) {
+                elementoForm.getErrores().forEach(error -> System.out.println("Nombre: " + elementoForm.getNombre() + " Error: " + error));
+            }
+        });
 
     }
 }
