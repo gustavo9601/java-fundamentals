@@ -4,7 +4,10 @@ import java.util.List;
 
 public class TiposGenericos {
     /*
-     * Generics
+     *  Generics || Genericos
+     * - Permiten que las clases, metodos sean reutilizables sin acoplar a implementaciones concretas
+     * permitiendo la extencion
+     * - Permite tener interfaces o abstracciones de tipos concretos solo cuando se necesite
      * */
     public static void main(String[] args) {
         List<Human> humanos = new ArrayList<>();
