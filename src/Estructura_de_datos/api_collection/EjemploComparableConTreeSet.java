@@ -1,6 +1,5 @@
 package Estructura_de_datos.api_collection;
 
-import java.util.Comparator;
 import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
