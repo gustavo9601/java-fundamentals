@@ -22,6 +22,7 @@ public class EstructuraArrayList {
         System.out.println("List: ");
         System.out.println(listNombres);
 
+
         // Collections.sort => usara la logica del compareTo
         List<Estudiante> estudiantes = new ArrayList<>();
         estudiantes.add(new Estudiante("Gustavo", 100));
