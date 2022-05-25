@@ -18,11 +18,12 @@ public class EstructuraHashMap {
         atributosPersona.put("nombre", "Gustavo");
         atributosPersona.put("edad", "26");
         atributosPersona.put("cargo", "Manager Engineering");
+        atributosPersona.put("salario", "900000");
         // reemplazando
         // .replaceAll(collection)
         atributosPersona.replace("cargo", "Director Engineering");
         // .replace(llave, valor anterior, valor nuevo)
-        atributosPersona.replace("cargo", "Director Engineering","Manager Engineering");
+        atributosPersona.replace("cargo", "Director Engineering", "Manager Engineering");
 
         /*
          * Consultando
@@ -30,6 +31,8 @@ public class EstructuraHashMap {
         System.out.println("atributosPersona=\t" + atributosPersona);
         // .get(llave) // accede la llave y retorna el valor
         System.out.println("nombre get=\t" + atributosPersona.get("nombre"));
+        // .getOurDefault() // de encontrar la llave retorna el valor, en caso contrario devuelve una por fault
+        System.out.println("nombre getOrDefault=\t" + atributosPersona.getOrDefault("nombre", "Gustavo"));
         // .containsKey(llave) // devuelve booleano si existe la llave
         System.out.println("nombre containsKey=\t" + atributosPersona.containsKey("nombre"));
         // .containsValue(valor) // devuelve booleano si encuentra el valor en alguna llave
@@ -41,11 +44,11 @@ public class EstructuraHashMap {
         // devuelve una lista con las llaves
         System.out.println("keyset()=\t" + atributosPersona.keySet());
         // Devuelve la cantidad de elementos empezando en 0
-        System.out.println("size()=\t"+ atributosPersona.size());
+        System.out.println("size()=\t" + atributosPersona.size());
 
         /*
-        * Eliminando
-        * */
+         * Eliminando
+         * */
         // elimina por llave y retorna el valor
         atributosPersona.remove("nombre");
         // elimina por llave y valor y retorna booleano
@@ -65,7 +68,7 @@ public class EstructuraHashMap {
          * */
         // Para obtener la llave y el valor dentro
         System.out.println("=========== entrySet ================");
-        for (Map.Entry<String, Animal> animal: animales.entrySet()) {
+        for (Map.Entry<String, Animal> animal : animales.entrySet()) {
             System.out.println("key:\t" + animal.getKey() + " => Value:\t" + animal.getValue());
         }
         System.out.println("============ forEach ===============");
@@ -73,6 +76,26 @@ public class EstructuraHashMap {
         animales.forEach((String llave, Animal animal) -> {
             System.out.println("key:\t" + llave + " => Value:\t" + animal);
         });
+
+
+        // diccionario de valores genericos
+        Map<String, String> direccion = new HashMap<>();
+        direccion.put("pais", "Colombia");
+        direccion.put("ciudad", "Bogota");
+        direccion.put("Numero casa", "100");
+
+
+        Map<String, Object> ciudadano = new HashMap<>();
+        ciudadano.put("nombre", "Gustavo");
+        ciudadano.put("edad", 26);
+        ciudadano.put("salario", 1000000F);
+        ciudadano.put("direccion", direccion);
+
+        System.out.println("ciudadano=\t" + ciudadano);
+
+        // castea la respuesta al tipo de dato que requiere la interfaz
+        Map<String, Object> direccionPersona = (Map<String, Object>) ciudadano.get("direccion");
+        System.out.println("direccionPersona=\t"+direccionPersona);
 
     }
 }
@@ -102,3 +125,4 @@ class Animal {
                 '}';
     }
 }
+
