@@ -5,7 +5,8 @@ public class ThreadsHilosClase {
      * Objetos que dan la capacidad de hacer mas de una tarea al mismo tiempo
      *
      * Paralelismo:
-     *   Si es Multicore el hardware, se ejecutaran 100% en paralelo
+     *   - Si es Multicore el hardware, se ejecutaran 100% en paralelo
+     *   - Se ejecuta de forma asíncrona (de forma paralela)
      *
      * Concurrencia:
      *   Si es un solo core el hardware, se ira alternando la ejecucion
