@@ -1,5 +1,7 @@
 import java.util.*;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -33,7 +35,7 @@ public class Streams {
         List<String> listaCiudades = Arrays.asList("Madrid", "Barcelona", "Valencia", "Sevilla");
 
         // Collection.stream();
-        Stream<String> streamCiudades = listaCiudades.stream();
+        Stream<String> streamCiudades = listaCiudades.stream(); // de List<String> a Stream<String>
 
 
 
@@ -164,7 +166,60 @@ public class Streams {
         System.out.println("estadisticas.getCount() = " + estadisticas.getCount());
         System.out.println("estadisticas.getSum() = " + estadisticas.getSum());
 
+        // .flatMap() // Retorna un stream por cada elemento de la iteracion
+        Stream<Usuario> usuariosFlat = Stream.of(new Usuario("Gus", null, 10), new Usuario("Ser", null, 50));
+        usuariosFlat.flatMap(usuario -> {
+            if (usuario.getEdad() > 10) {
+                return Stream.of(usuario);
+            }
+            return Stream.empty(); // Retorna un stream vacio entonces no sera tenido en cuenta en las siguientes tuberias
+        }).forEach(System.out::println);
+
+
+
+        /*
+         * Generador
+         * */
+        // .generate(lambda) // Retorna un stream con los valores generados
+        AtomicInteger contador = new AtomicInteger(0);
+        Stream.generate(() -> "Generando un nuevo objeto iteracion: " + contador.getAndIncrement())
+                .limit(3) // limita la cantidad de iteraciones sobre el generate
+                .forEach(System.out::println);
+
+
+
+
+        /*
+         * Paralelismo en los Stream
+         * */
+        // .parallel() // Retorna un stream paralelo en cada iteracion
+
+        long t1 = System.currentTimeMillis();
+
+        System.out.println("Stream con paralelismo");
+        Stream.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+                .parallel()
+                .peek((numero) -> {
+                    System.out.println("Thread: " + Thread.currentThread().getName() + " - " + numero);
+                })
+                .map(valor -> {
+                    try {
+                        TimeUnit.SECONDS.sleep(1); // Como esta en paralelo las actividades se ejecutan en paralelo
+                        return valor * 100;
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .forEach(System.out::println);
+
+
+        long t2 = System.currentTimeMillis();
+        System.out.println("Tiempo de ejecucion: " + (t2 - t1));
+
+
     }
+
+
 }
 
 
