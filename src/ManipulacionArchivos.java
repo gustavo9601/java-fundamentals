@@ -135,7 +135,6 @@ class ArchivoServicio {
     }
 
 
-
     public String leerArchivoConScanner(String nombreArchivo) {
         StringBuilder contenido = new StringBuilder();
 
@@ -146,7 +145,7 @@ class ArchivoServicio {
 
         File archivo = new File(nombreArchivo);
 
-        try  {
+        try {
             // Se crea un scanner para leer el archivo
             Scanner scanner = new Scanner(new File(ruta + "/" + archivo));
             scanner.useDelimiter("\n"); // se debe especificar el delimitador para que no lo devuelva como sola linea
