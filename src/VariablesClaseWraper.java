@@ -1,4 +1,5 @@
 import java.lang.reflect.Method;
+import java.math.BigDecimal;
 
 public class VariablesClaseWraper {
 
@@ -20,6 +21,10 @@ public class VariablesClaseWraper {
 
         System.out.println("Integer.MAX_VALUE: " + Integer.MAX_VALUE);
         System.out.println("Integer.MIN_VALUE: " + Integer.MIN_VALUE);
+        
+        // BigDecimal => Es usado para precisiones exactas cuando util en sistemas financieros con calculos exactos
+        BigDecimal numeroBigDecimal = new BigDecimal(10);
+        System.out.println("numeroBigDecimal = " + numeroBigDecimal);
 
         Long cLong = aInteger.longValue();
         System.out.println("cLong: " + cLong);
